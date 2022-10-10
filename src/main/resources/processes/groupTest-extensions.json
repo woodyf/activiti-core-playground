@@ -1,0 +1,26 @@
+{
+  "id":"groupTest",
+  "type": "PROCESS",
+  "name": "groupTest",
+  "extensions": {
+    "groupTest": {
+      "mappings": {
+        "service0": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        },
+        "userTask0": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        },
+        "groupTask0": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+spring:
+  activiti:
+    db-history-used: true
+    history-level: audit
+  jpa:
+    show-sql: true
+    # 若有放data.sql, spring-boot會預期table DDL由schema.sql提供, 但在這裡我希望由@Entity產出schema, 但data由data.sql提供,就必須打開這個flag
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    hikari:
+      minimum-idle: 0
