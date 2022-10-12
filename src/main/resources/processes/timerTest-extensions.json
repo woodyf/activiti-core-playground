@@ -1,0 +1,21 @@
+{
+  "id":"timerTest",
+  "type": "PROCESS",
+  "name": "timerTest",
+  "extensions": {
+    "timerTest": {
+      "mappings": {
+        "serviceBefore": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        },
+        "serviceAfter": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        }
+      }
+    }
+  }
+}

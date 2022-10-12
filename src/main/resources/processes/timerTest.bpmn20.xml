@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+	xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:activiti="http://activiti.org/bpmn" id="Definitions_0v7t65f"
+	targetNamespace="http://activiti.org/bpmn20"
+	exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
+	<bpmn:process id="timerTest" name="timerTest"
+		isExecutable="true">
+		<bpmn:startEvent id="Event_0lyr49w">
+			<bpmn:outgoing>Flow_0l49ehn</bpmn:outgoing>
+		</bpmn:startEvent>
+		<bpmn:userTask id="userTask"
+			name="userTask" activiti:assignee="${initiator}">
+			<bpmn:incoming>Flow_0l49ehn</bpmn:incoming>
+			<bpmn:outgoing>Flow_1m7btsj</bpmn:outgoing>
+		</bpmn:userTask>
+		<bpmn:sequenceFlow id="Flow_0l49ehn"
+			sourceRef="Event_0lyr49w" targetRef="userTask" />
+		<bpmn:endEvent id="Event_0ppfoo6">
+			<bpmn:incoming>Flow_1o1v1rf</bpmn:incoming>
+		</bpmn:endEvent>
+		<bpmn:intermediateCatchEvent
+			id="Event_05vtrg5">
+			<bpmn:incoming>Flow_1m7btsj</bpmn:incoming>
+			<bpmn:outgoing>Flow_1aojn64</bpmn:outgoing>
+			<bpmn:timerEventDefinition
+				id="TimerEventDefinition_15ia6k0">
+				<bpmn:timeDuration>PT1M</bpmn:timeDuration>
+			</bpmn:timerEventDefinition>
+		</bpmn:intermediateCatchEvent>
+		<bpmn:sequenceFlow id="Flow_1m7btsj"
+			sourceRef="userTask" targetRef="Event_05vtrg5" />
+		<bpmn:serviceTask id="serviceAfter"
+			name="serviceAfter" implementation="timerAfterConnector">
+			<bpmn:incoming>Flow_1aojn64</bpmn:incoming>
+			<bpmn:outgoing>Flow_1o1v1rf</bpmn:outgoing>
+		</bpmn:serviceTask>
+		<bpmn:sequenceFlow id="Flow_1aojn64"
+			sourceRef="Event_05vtrg5" targetRef="serviceAfter" />
+		<bpmn:sequenceFlow id="Flow_1o1v1rf"
+			sourceRef="serviceAfter" targetRef="Event_0ppfoo6" />
+	</bpmn:process>
+	<bpmndi:BPMNDiagram id="BPMNDiagram_1">
+		<bpmndi:BPMNPlane id="BPMNPlane_1"
+			bpmnElement="timerTest">
+			<bpmndi:BPMNShape id="Event_0lyr49w_di"
+				bpmnElement="Event_0lyr49w">
+				<dc:Bounds x="152" y="102" width="36" height="36" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="userTask_di"
+				bpmnElement="userTask">
+				<dc:Bounds x="240" y="80" width="100" height="80" />
+				<bpmndi:BPMNLabel />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Event_05vtrg5_di"
+				bpmnElement="Event_05vtrg5">
+				<dc:Bounds x="392" y="102" width="36" height="36" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="serviceAfter_di"
+				bpmnElement="serviceAfter">
+				<dc:Bounds x="480" y="80" width="100" height="80" />
+				<bpmndi:BPMNLabel />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape id="Event_0ppfoo6_di"
+				bpmnElement="Event_0ppfoo6">
+				<dc:Bounds x="662" y="102" width="36" height="36" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge id="Flow_0l49ehn_di"
+				bpmnElement="Flow_0l49ehn">
+				<di:waypoint x="188" y="120" />
+				<di:waypoint x="240" y="120" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="Flow_1m7btsj_di"
+				bpmnElement="Flow_1m7btsj">
+				<di:waypoint x="340" y="120" />
+				<di:waypoint x="392" y="120" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="Flow_1aojn64_di"
+				bpmnElement="Flow_1aojn64">
+				<di:waypoint x="428" y="120" />
+				<di:waypoint x="480" y="120" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge id="Flow_1o1v1rf_di"
+				bpmnElement="Flow_1o1v1rf">
+				<di:waypoint x="580" y="120" />
+				<di:waypoint x="662" y="120" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</bpmn:definitions>

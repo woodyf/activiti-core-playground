@@ -1,0 +1,26 @@
+{
+  "id":"jsonVarTest",
+  "type": "PROCESS",
+  "name": "jsonVarTest",
+  "extensions": {
+    "jsonVarTest": {
+      "mappings": {
+        "userTask0": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        },
+        "updateVar": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        },
+        "userTask1": {
+          "mappingType": "MAP_ALL",
+          "inputs": {},
+          "outputs": {}
+        }
+      }
+    }
+  }
+}
